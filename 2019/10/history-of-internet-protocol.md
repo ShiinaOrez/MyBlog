@@ -172,7 +172,7 @@ NCP是一种**Host-to-Host**的协议, 它建立了使用**数字主机地址进
 
 ### TCP/IP
 
-来不及写了, 草
+在NCP之后, NWG开始设计 TCP/IP 套件, 这期间的讨论大多以IEN的形式出现, 比如以下资料就出自 IEN-3 :
 
 ```
     FIELD                                                           BITS
@@ -209,3 +209,5 @@ NCP是一种**Host-to-Host**的协议, 它建立了使用**数字主机地址进
     Data                                                        variable
     Checksum                                                          16
 ```
+
+大家就可以看出和之前的协议设计大有不同, 增加了很多的冗余字段, 至于这其中的原因可以参考我的另一篇博客, 其中有协议设计历史的演变: [ShiinaOrez的博客](https://shiinaorez.github.io/2019/10/02/tlv-ttlv/)
