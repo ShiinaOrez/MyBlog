@@ -7,3 +7,5 @@
 ```sql
 alter table `tablename` convert to charset utf8;  
 ```
+
+#### 使用go test时，如果不设置GOMUDULE111环境变量，将不使用mod
