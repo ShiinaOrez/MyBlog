@@ -40,12 +40,12 @@ vendor本身是应用根目录下的一个文件夹，而文件夹内用于存�
 
 vendor的加载流程：
 
- 包根目录下的vendor
- 包根目录向上的最近的一个vendor
- ...
- GOPATH src/下的vendor
- GOROOT src/
- GOPATH src/
+- 包根目录下的vendor
+- 包根目录向上的最近的一个vendor
+- ...
+- GOPATH src/下的vendor
+- GOROOT src/
+- GOPATH src/
 
 但是只依靠vendor还是没办法管理依赖的版本，这个时候很多第三方的工具出现了：glide，godep还有govendor等等...
 
