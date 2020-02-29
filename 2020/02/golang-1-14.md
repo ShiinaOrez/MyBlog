@@ -64,8 +64,8 @@ Go1.11版本开始，实验性的出现了可以不用定义GOPATH的功能，�
 
 官方原文的描述：
 
-​	Per the overlapping interfaces proposal, Go 1.14 now permits embedding of interfaces with overlapping method sets: methods from an embedded interface may have the same names and identical signatures as methods already present in the (embedding) interface. This solves problems that typically (but not exclusively) occur with diamond-shaped embedding graphs. Explicitly declared methods in an interface must remain unique, as before.
-​	根据重叠接口类型提议，Go1.14现在已经允许使用具有重叠的方法集的嵌入接口类型：被嵌入的接口类型可能具有和嵌入的接口类型具有相同名称的方法。这解决了最经典的菱形嵌入问题（虽然导致这个问题出现的不一定是菱形拓扑结构）。和之前一样，在接口中明确声明的方法必须保证唯一性。
+- Per the overlapping interfaces proposal, Go 1.14 now permits embedding of interfaces with overlapping method sets: methods from an embedded interface may have the same names and identical signatures as methods already present in the (embedding) interface. This solves problems that typically (but not exclusively) occur with diamond-shaped embedding graphs. Explicitly declared methods in an interface must remain unique, as before.
+​- 根据重叠接口类型提议，Go1.14现在已经允许使用具有重叠的方法集的嵌入接口类型：被嵌入的接口类型可能具有和嵌入的接口类型具有相同名称的方法。这解决了最经典的菱形嵌入问题（虽然导致这个问题出现的不一定是菱形拓扑结构）。和之前一样，在接口中明确声明的方法必须保证唯一性。
 
 在这个描述中，有两点是值得注意的：一是有关于这个改变的提议，另一个则是所谓的菱形嵌入（继承）问题。
 
@@ -75,15 +75,15 @@ Go1.11版本开始，实验性的出现了可以不用定义GOPATH的功能，�
 以下是提议的主要内容（自己翻译的，可能不准确）：
 目前，在Go语言的接口类型章节中是这样陈述的：
 
-​	一个接口类型T可以通过嵌入一个另一个接口类型E来代替自身的接口方法声明。这个过程称为嵌入E到T中。它会将E中所有的导出方法和未导出方法都添加到接口T中。
+​- 一个接口类型T可以通过嵌入一个另一个接口类型E来代替自身的接口方法声明。这个过程称为嵌入E到T中。它会将E中所有的导出方法和未导出方法都添加到接口T中。
 
 而我们现在希望将其改为：
 
-​	一个接口类型T可以通过嵌入一个另一个接口类型E来代替自身的接口方法声明。这个过程称为嵌入E到T中。接口T的方法集为其显式声明的方法集和嵌入的方法集的并集。
+​- 一个接口类型T可以通过嵌入一个另一个接口类型E来代替自身的接口方法声明。这个过程称为嵌入E到T中。接口T的方法集为其显式声明的方法集和嵌入的方法集的并集。
 
 并且添加以下描述：
 
-​	这个并集仅包括所有的方法集的所有方法（导出的和未导出的）一次，并且相同名称的方法必须保持相同的签名。
+​- 这个并集仅包括所有的方法集的所有方法（导出的和未导出的）一次，并且相同名称的方法必须保持相同的签名。
 
 这个提议可以这样去理解，Go语言的面向对象的方式是以组合（嵌入）的方式实现的。和继承一样，存在着对于成员方法和字段的合并问题。
 Go语言以前的方针是不允许任何同名的方法出现在同一个接口类型的合并过程中。哪怕是完全相同的两个方法也不可以。
@@ -107,8 +107,8 @@ Go语言以前的方针是不允许任何同名的方法出现在同一个接口
 
 原文描述：
 
-​	This release improves the performance of most uses of defer to incur almost zero overhead compared to calling the deferred function directly. As a result, defer can now be used in performance-critical code without overhead concerns.
-​	这个版本提升了defer大多数用法的性能，接近了几乎0开销。因此，现在可以将defer用于高性能场景了。
+​- This release improves the performance of most uses of defer to incur almost zero overhead compared to calling the deferred function directly. As a result, defer can now be used in performance-critical code without overhead concerns.
+​- 这个版本提升了defer大多数用法的性能，接近了几乎0开销。因此，现在可以将defer用于高性能场景了。
 
 先来看一下defer在Go1.14以前是如何实现的：
 ![defer](http://xiaorui.cc/wp-content/uploads/2020/02/deferdefer.jpg)
@@ -117,4 +117,4 @@ Go1.14新加入了Open-Coded defer类型，编译器会将defer中的函数直�
 
 网上也有了很多的benchmark测评，结果是Go1.14比Go1.13的defer的速度快了不少，提升了大概35ns左右，得到的结论是：Go1.14中用不用defer对于性能影响甚微。
 
-更详细的细节在[这里
+更详细的细节在[这里](http://xiaorui.cc/archives/6579)
