@@ -131,3 +131,32 @@ server {
 ```
 
 解决跨域问题的关键在于在响应头中加入``Access-Control-Allow-*``的头部信息.
+
+--------
+
+### 使用gzip对传输内容进行压缩
+
+在部署前端之后, 我发现比如使用vue构建的项目, 在加载的时候都要传输一个很大的js文件, 比如``app.js``这种, 而在传输的时候这个文件可能有10M之多, 这让我学生机的小水管直接就撑不住了, 一个网站要加载十几秒才能显示出来, 这实在是太...
+
+所以这个时候要做的事情就有两个:
+
++ 一是前端尽可能对于组件进行按需引用, 尽可能的压缩这个app.js的大小
++ 二是nginx开启gzip, 并且对于application/javascript 和 text/javascript 进行压缩
+
+在``/etc/nginx/nginx.conf``中, 默认注释掉了gzip的选项, 我们需要去掉注释, 比如这样:
+
+```nginx
+	##
+	# Gzip Settings
+	##
+
+	gzip on;
+	# gzip_disable "msie6";
+
+	# gzip_vary on;
+	gzip_proxied any;
+	gzip_comp_level 6;
+	gzip_buffers 4 8k;
+	gzip_http_version 1.1;
+	gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+```
