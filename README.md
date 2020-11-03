@@ -1,6 +1,7 @@
 ## 所以为什么README我要放一些好用的tips:
 
 [直接修改表中全部字段的charset](#直接修改表中全部字段的charset.)
+
 [使用脚本批量修改 git commit history 中的 User 和 Email](#使用脚本批量修改 git commit history 中的 User 和 Email)
 
 #### 直接修改表中全部字段的charset.
