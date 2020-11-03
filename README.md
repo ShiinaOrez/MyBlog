@@ -2,7 +2,7 @@
 
 [直接修改表中全部字段的charset](#直接修改表中全部字段的charset.)
 
-[使用脚本批量修改 git commit history 中的 User 和 Email](#使用脚本批量修改 git commit history 中的 User 和 Email)
+[使用脚本批量修改 git commit history 中的 User 和 Email](#使用脚本批量修改git-commit-history中的User和Email)
 
 #### 直接修改表中全部字段的charset.
 
@@ -12,7 +12,7 @@ alter table `tablename` convert to charset utf8;
 
 #### 使用go test时，如果不设置GOMUDULE111环境变量，将不使用mod
 
-#### 使用脚本批量修改 git commit history 中的 User 和 Email
+#### 使用脚本批量修改git-commit-history中的User和Email
 
  ```shell
  #!/bin/sh
